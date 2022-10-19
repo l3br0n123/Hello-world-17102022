@@ -1,54 +1,47 @@
 //Global Variables
 int appWidth, appHeight;
 //
-void setup() {//Declare  Display Geometry: square, landscape, portrait
-size(400, 2000); //Use size fro debugging
-//fullScreen(); //Use fullScreen for easy deployment  
-appWidth = width;
-appHeight = height;
+void setup() {
+  //Declare Display Geometry: square, landscape, portrait
+  size(700, 400); //Use size for debugging
+  //fullScreen(); //Use fullScreen for easy deployment
+  appWidth = width;
+  appHeight = height;
+  //
+  //Concatenation
+  println("\t\t\tWidth="+width, "\tHeight="+height); //key variables
+  println("Display Monitor:", "\twidth="+displayWidth, "& height="+displayHeight);
+  //
+  //Ternary Operator
+  String ls="Landscape or Square", p="portrait", DO="Display Orientation", instruct="Bru, turn your phun";
+  //String orientation = ( appWidth >= appHeight ) ? ls : p;
+  //println (DO, orientation);
+  if ( appWidth < appHeight ) { //Declare Landscape Mode
+    println(instruct);
+  } else {
+    //Fit CANVAS into Display Monitor
+    if ( appWidth > displayWidth ) appWidth = 0; //CANVAS-width will not fit
+    if ( appHeight > displayHeight ) appHeight = 0; //CANVAS-height will not fit
+    if ( appWidth != 0 && appHeight != 0 ) {
+      print("Display Geoemtry is Good to Go.");
+    } else {
+      println("STOP, is broken");
+    }
+  }
+  //
+  //If ORIENTATION is wrong ... feedback to change it
+  //if ( orientation==p ) println(instruct);
+  //
+} //End setup
 //
-//Conctenation
-println("\t\t\tWidth="+width, "\theight=+height); //key variables
-println("Display Monitor:", "\twidth="+displayWidth, "& height="+displayHeight
+void draw() {
+  ellipse(190, 50, 40, 30);
+} //End draw
 //
-//Ternary Operator
-String ls="Landscape or Square", p="portrait", DO="Display Orientation", instruct="Bru, turn yhou phun";
-String orientation = ( width >= height ) ? ls : p;
-println (DO , orientation);
+void keyPressed() {
+} //End keyPressed
 //
-println("\t\t\t\tWidth="+width, "\tHeight="+height); //key variables
-println("Display Monitor:", "\twidth="+displayWidth, "& height="+displayHeight);
+void mousePressed() {
+} //End mousePressed
 //
-//If OREINTATION is worng ... feedback to change it 
-if ( orientation==p ) println(instruct);
-//
-//Fit CANVAS into Display Monitor 
-if (width > displayWidth) appWidth = 0; //CANVAS will not fit 
-if ( height > displayHeight ) appHeight = 0; //CANVAS-height will not fit 
-if ( appWidth != 0 && appHeight != 0 ) print("Display Geomtry is Good to Go.");
-if ( appWidth == 0 || appHeight == 0 ) println("STOP, is broken");
-}
-//Declare  Display Geometry: square, landscape, portrait
-size(300, 600); 
-//fullScreen();
-appWidth = width;
-appHeight = height;
-String ls="Landscape or Square", p="portrait", DO="Display Orientation", instruct="Bru, turn your phun";
-String orientation = ( width >= height ) ? ls : p;
-println (DO , orientation);
-//
-println("\t\t\t\tWidth="+width, "\tHeight="+height); //key variables
-println("Display Monitor:", "\twidth="+displayWidth, "& height="+displayHeight);
-//
-//Fit CANVAS into Display Monitor 
-if (width > displayWidth) appWidth = 0; //CANVAS will not fit 
-if ( height > displayHeight ) appHeight = 0; //CANVAS-height will not fit 
-if ( appWidth != 0 && appHeight != 0 ) print("Display Geomtry is Good to Go.");
-if ( appWidth == 0 || appHeight == 0 ) println("STOP, is broken");
-void draw() {} //end draw
-//
-void keyPressed() {} //End keyPressed
-//
-void mousePressed() {} //End mousePressed
-//
-//End Main Program
+// End Main Program
